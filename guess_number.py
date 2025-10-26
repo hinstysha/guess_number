@@ -1,24 +1,26 @@
-# Импорт функции получения случайных чисел
-# из модуля random.
-from random import randint
+from math import sqrt
+from typing import Optional
 
-# Получаем случайное число в диапазоне от 1 до 100.
-number = randint(1, 100)
-print('Угадайте число от 1 до 100')
 
-while True:
-    # Получаем число от пользователя и сохраняем его в переменную.
-    guess = int(input('Введите число: '))
+def add_numbers(firstNumber: int, secondNumber: int) -> int:
+    return firstNumber + secondNumber
 
-    # Если число меньше загаданного...
-    if guess < number:
-        # ...выводим сообщение.
-        print('Ваше число меньше того, что загадано.')
-    elif guess > number:
-        # ...выводим сообщение.
-        print('Ваше число больше того, что загадано.')
-    elif guess == number:
-        # ...прерываем выполнение программы и...
-        break
-# ...выводим сообщение.
-print('Отличная интуиция! Вы угадали число :)')
+
+def calculate_square_root(number: float) -> float:
+    return sqrt(number)
+
+
+def calc(your_number: float) -> Optional[str]:
+    if your_number <= 0:
+        return None
+
+    root = calculate_square_root(your_number)
+    return f"Мы вычислили квадратный корень из введённого вами числа.Это будет: {root}"
+
+
+firstNumber = 10
+secondNumber = 5
+
+print("Сумма чисел: ", add_numbers(firstNumber, secondNumber))
+
+print(calc(25.5))
